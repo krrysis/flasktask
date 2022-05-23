@@ -1,0 +1,228 @@
+html,
+body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	background: linear-gradient(45deg, #49a09d, #5f2c82);
+	font-family: sans-serif;
+	font-weight: 100;
+}
+
+.container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+table {
+	width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+	border-collapse: collapse;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+
+th,
+td {
+	padding: 12px;
+	background-color: rgba(255,255,255,0.2);
+	color: #fff;
+}
+
+th {
+	text-align: left;
+}
+
+thead {
+	
+		background-color: #55608f;
+	
+}
+
+  tr:hover {
+    background-color: rgba(255,255,255,0.3);
+  }
+
+  td {
+		position: relative;
+  }
+  td:hover::before{
+    
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -9999px;
+      bottom: -9999px;
+      background-color: rgba(255,255,255,0.2);
+      z-index: -1;
+    }
+  h1{
+  
+  
+	font-weight: 600;
+	font-family: 'Titillium Web', sans-serif;
+  text-align: center;
+	font-size: 36px;
+	line-height: 40px;
+	padding: 15px 0px 15px 0%;
+	color: #fbfdff;
+	box-shadow: 
+		inset 0 0 0 1px rgba(53,86,129, 0.4), 
+	
+		inset -285px 0 35px rgb(210, 210, 255);
+	border-radius: 0 10px 0 10px;
+	}
+
+  .noselect {
+    -webkit-touch-callout: none;
+      -webkit-user-select: none;
+       -khtml-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+      -webkit-tap-highlight-color: transparent;
+  }
+  
+  button {
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.847);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    background-image: linear-gradient(315deg, #7f5a83 0%, #0d324d 74%);
+    background-size: 150% 100%;
+    background-position: left;
+    background-repeat: no-repeat;
+    transition: 500ms;
+    
+  }
+  
+  button:before {
+    
+    color: rgba(255,255,255,0.5);
+    font-size: 16px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 40px;
+    background-color: #1b2845;
+    background-image: linear-gradient(315deg, #1b2845 0%, #274060 74%);
+    transition: 500ms;
+  }
+  
+  button:hover {
+    background-position: right;
+  }
+  
+  button:hover:before {
+    color: rgba(255,255,255,0.8);
+  }
+  
+  button:focus {
+    outline: none;
+  }
+
+  form {
+    background-color: #15172b;
+    border-radius: 10px;
+    box-sizing: border-box;
+    height: auto;
+    padding: 8px;
+    text-align: center;
+    width: auto;
+    }
+
+    input {
+      
+      background-color: #303245;
+      border-radius: 12px;
+      border: 0;
+      box-sizing: border-box;
+      color: #eee;
+      font-size: 18px;
+      height: auto;
+      outline: 0;
+      padding: 4px 20px 0;
+      width: auto;
+    }
+
+
+    input:focus ~ .cut,
+.input:not(:placeholder-shown) ~ .cut {
+  transform: translateY(8px);
+}
+
+.placeholder {
+  color: #65657b;
+  font-family: sans-serif;
+  left: 20px;
+  line-height: 14px;
+  pointer-events: none;
+  position: absolute;
+  transform-origin: 0 50%;
+  transition: transform 200ms, color 200ms;
+  top: 20px;
+}
+
+.input:focus ~ .placeholder,
+.input:not(:placeholder-shown) ~ .placeholder {
+  transform: translateY(-30px) translateX(10px) scale(0.75);
+}
+
+.input:not(:placeholder-shown) ~ .placeholder {
+  color: #808097;
+}
+
+.input:focus ~ .placeholder {
+  color: #dc2f55;
+}
+
+.submit {
+  background-color: #08d;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  cursor: pointer;
+  font-size: 18px;
+  height: 50px;
+  margin-top: 38px;
+  outline: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.submit:active {
+  background-color: #06b;
+}
+
+a {
+  
+  padding: 1rem 1rem 1rem 3rem;
+  border: 1px solid var(--color-blue);
+  margin: 0.5rem;
+  border-bottom-width: 3px;
+  border-radius: 2rem;
+  text-decoration: none;
+  color: white;
+  position: relative;
+  
+     
+
+}
+p{
+  text-align: center;
+  color: white;
+}

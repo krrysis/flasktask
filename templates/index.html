@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title> Employee Details</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 >Crayon Infotech Employee details</h1>
+    
+    <table>
+        <thead><tr>
+            <th>S.N.</th>
+            <th>Full Name</th>
+            <!-- 2nd field address below -->
+            <th>Address</th>
+            <th>Mobile</th>
+            <th>email</th>
+            
+            <th>Added</th>
+            <th>Actions</th>
+        </tr></thead>
+        {% for task in tasks.items %}
+        <tbody><tr>
+            
+            <td>{{ task.id }}</td>
+            <td>{{ task.fullname }}</td>
+            <!-- 2nd field address below -->
+            <td>{{ task.add }}</td>
+            <td>{{ task.mob }}</td>
+            <td>{{ task.email }}</td>
+            <td>{{task.date_created.date()}}</td>
+            <td>
+                <form method="get" action="/delete/{{task.id}}">
+                    <button class="noselect" type="submit">Delete</button>
+                </form>
+                <!--<a href="/delete/{{task.id}}">Delete</a>-->
+                <br>
+                <form method="get" action="/update/{{task.id}}">
+                    <button class="noselect" type="submit">Update</button>
+                </form>
+                <!--<a href="/update/{{task.id}}">Update</a>-->
+            </td>
+        </tr></tbody>
+        {% endfor %}
+    </table>
+
+    <br>
+    <!-- --------------------------------------------------------------->
+  <!-- Pagination Links-->
+<div class="text-right">
+    <a href="{{ url_for('index', page=tasks.prev_num) }}"
+       class="btn btn-outline-dark 
+       {% if tasks.page == 1 %}disabled{% endif %}">
+        &laquo;
+    </a>
+<!-- Loop through the number of pages to display a link for each-->
+    {% for page_num in tasks.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+{% if page_num %}
+<!-- Check for the active page and set the link to "Active"-->
+            {% if tasks.page == page_num %}
+            <a href="{{ url_for('index', page=page_num) }}"
+               class="btn btn-dark">
+                {{ page_num }}
+            </a>
+            {% else %}
+            <a href="{{ url_for('index', page=page_num) }}"
+               class="btn btn-outline-dark">
+                {{ page_num }}
+            </a>
+            {% endif %}
+        {% else %}
+            ...
+        {% endif %}
+    {% endfor %}
+    <a href="{{ url_for('index', page=tasks.next_num) }}"
+       class="btn btn-outline-dark 
+       {% if tasks.page == tasks.pages %}disabled{% endif %}">
+        &raquo;
+    </a>
+</div>
+<p class="text-right mt-3">
+    
+   Showing page {{ tasks.page }} of {{ tasks.pages }}
+</p>
+<!-- --------------------------------------------------------------->
+<br>
+
+    
+    <form name="myform" action="/" method="POST" onsubmit="return validateemail();">
+        <input type="text" name="fullname" id="fullname" placeholder="Full Name" required>
+        <!-- 2nd field address below -->
+        <br><br><input type="text" name="add" id="add" placeholder="Address" required>
+        <br><br><input type="text" name="mob" id="mob" placeholder="Mobile" required>
+        <br><br><input type="text" name="email" id="email" placeholder="Email" required>
+        <br><br><input type="submit" value="Add Employee">
+        
+    </form>
+</div>
+{% endblock %}
